@@ -6,6 +6,23 @@ Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://j
 
 ### Markdown
 
+            <!-- Colin's HTML code start -->
+                    <div>
+                     Click to switch:
+                     <button type="button" class="button" id="myCheckbox">A</button>
+                     <br>
+                     <i> Now playing </i> <i id="filePlaying">(null)</i>
+                     <br><br>
+                    </div>
+
+                    <div>
+                     <audio id="myAudio" controls>
+                       <source src='Media3.mp3' type="audio/mpeg">
+                       Your browser does not support the audio element.
+                     </audio><br>
+                    </div>
+            <!-- Colin's HTML code finish -->
+
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
 ```markdown
