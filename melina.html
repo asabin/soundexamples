@@ -1,0 +1,160 @@
+<html>
+<body>
+
+<!--
+<style>
+  .button {
+    background-color: black;
+    color: white;
+    border-radius: 6px;
+    border-color: black;
+  }
+</style>
+-->
+<div>
+  <h1 id="text01" class="style2">Sound Examples, Remote Mics</h1>
+  <p id="text06" class="style1">Listen to the recorded options:</p>
+<div><br>
+
+<form>
+ <input type="radio" id="rb1" name="rb1" value="nh">
+ <label for="label_nh"> open ear (no device) </label><br>
+ <input type="radio" id="rb2" name="rb1" value="mild">
+ <label for="label_mild"> Apple live listen (from phone to ANR headphones) </label><br>
+ <input type="radio" id="rb3" name="rb1" value="moderate">
+ <label for="label_mod"> Noopl accessory (from phone accessory to ANR headphones)</label><br>
+ <input type="radio" id="rb4" name="rb1" value="mild_amp">
+ <label for="label_mild_amp"> Custom remote microphone, static beam (from mic to ANR headphones)</label><br>
+ <input type="radio" id="rb5" name="rb1" value="mod_amp">
+ <label for="label_mod_amp"> Custom remote microphone, auto-selected beam (from mic to ANR headphones)</label><br>
+</form>
+
+<div>
+ <i> Now playing: </i> <i id="filePlaying">(null)</i>
+ <br><br>
+</div>
+
+<div>
+ <audio id="myAudio" controls>
+   <source src='OpenEar_plus3dB.wav' type="audio/mpeg">
+   Your browser does not support the audio element.
+ </audio><br>
+</div>
+
+<script>
+var rb1 = document.getElementById("rb1");
+var rb2 = document.getElementById("rb2");
+var rb3 = document.getElementById("rb3");
+var rb4 = document.getElementById("rb4");
+var rb5 = document.getElementById("rb5");
+rb1.addEventListener('click', validate);
+rb1.addEventListener('load', initPage);
+rb2.addEventListener('click', validate);
+rb2.addEventListener('load', initPage);
+rb3.addEventListener('click', validate);
+rb3.addEventListener('load', initPage);
+rb4.addEventListener('click', validate);
+rb4.addEventListener('load', initPage);
+rb5.addEventListener('click', validate);
+rb5.addEventListener('load', initPage);
+
+var state = 1;
+var time = 0;
+var x = document.getElementById("myAudio");
+
+var src1 = "OpenEar_plus3dB.wav";
+var des1 = "open ear";
+var src2 = "LiveListen_ANR_plus3dB.wav";
+var des2 = "live listen";
+var src3 = "Noopl_ANR_plus3dB.wav";
+var des3 = "Noopl";
+var src4 = "QC35andPuck_staticbeam_plus3dB.wav";
+var des4 = "remote mic, static";
+var src5 = "QC35andPuck_auto_plus3dB.wav";
+var des5 = "remote mic, auto";
+
+
+var filePlaying = document.getElementById("filePlaying");
+filePlaying.innerHTML = des1;
+
+
+function validate() {
+
+//Collect rb state... could be combined w/ next section
+  if (rb1.checked){
+    state = 1
+  }
+  if (rb2.checked){
+    state = 2
+  }
+  if (rb3.checked){
+    state = 3
+  }
+  if (rb4.checked){
+    state = 4
+  }
+  if (rb5.checked){
+    state = 5
+  }
+
+  switch (state) {
+    case 1:
+      time = x.currentTime;
+      x.pause();
+      filePlaying.innerHTML = des1;
+      // filePlaying.innerHTML = des1
+      //cb.innerHTML = "1";
+      x.src = src1;
+      x.currentTime = time;
+      x.play();
+      break;
+    case 2:
+      time = x.currentTime;
+      x.pause();
+      filePlaying.innerHTML = des2
+      //cb.innerHTML = "2";
+      x.src = src2;
+      x.currentTime = time;
+      x.play();
+      break;
+    case 3:
+      time = x.currentTime;
+      x.pause();
+      filePlaying.innerHTML = des3
+      //cb.innerHTML = "2";
+      x.src = src3;
+      x.currentTime = time;
+      x.play();
+      break;
+    case 4:
+      time = x.currentTime;
+      x.pause();
+      filePlaying.innerHTML = des4
+      //cb.innerHTML = "2";
+      x.src = src4;
+      x.currentTime = time;
+      x.play();
+      break;
+    case 5:
+      time = x.currentTime;
+      x.pause();
+      filePlaying.innerHTML = des5
+      //cb.innerHTML = "2";
+      x.src = src5;
+      x.currentTime = time;
+      x.play();
+      break;
+
+    default:
+
+  }
+
+}
+
+function initPage() {
+	filePlaying.innerHTML = des1;
+}
+
+</script>
+</body>
+</HTML>
